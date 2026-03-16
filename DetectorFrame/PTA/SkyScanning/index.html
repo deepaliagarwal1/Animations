@@ -30,7 +30,7 @@
   </video>
 
   <!-- Image Section -->
-  <hr> <!-- optional separator -->
+  <hr>
   <h2>Choose an image:</h2>
   <label for="imageSelect">Select Image:</label>
   <select id="imageSelect">
@@ -43,15 +43,15 @@
   </select>
 
   <br><br>
+  <!-- Default image -->
   <img id="displayImage" src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Images/psr20_Clustered.jpg" alt="Selected Image">
 
-  <!-- Scripts -->
   <script>
     // Video switching
     const player = document.getElementById('player');
-    const select = document.getElementById('videoSelect');
-    select.addEventListener('change', () => {
-      player.src = select.value;
+    const videoSelect = document.getElementById('videoSelect');
+    videoSelect.addEventListener('change', () => {
+      player.src = videoSelect.value;
       player.load();
       player.play();
     });
