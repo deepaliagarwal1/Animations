@@ -6,13 +6,14 @@
   <title>Demo: Visualizing Point Spread Function Sweep Across the Sky with Pulsar Configurations</title>
   <style>
     body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-    video { max-width: 100%; height: auto; margin-top: 10px; }
-    select { padding: 5px; font-size: 16px; }
+    video, img { max-width: 100%; height: auto; margin-top: 10px; }
+    select { padding: 5px; font-size: 16px; margin-top: 10px; }
   </style>
 </head>
 <body>
   <h1>Demo: Visualizing Point Spread Function Sweep Across the Sky with Pulsar Configurations</h1>
 
+  <!-- Video Section -->
   <label for="videoSelect">Choose a video:</label>
   <select id="videoSelect">
     <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4">PSR_20_Clustered</option>
@@ -28,14 +29,35 @@
     Your browser does not support the video tag.
   </video>
 
+  <!-- Image Section -->
+  <hr> <!-- optional separator -->
+  <h2>Choose an image:</h2>
+  <label for="imageSelect">Select Image:</label>
+  <select id="imageSelect">
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Images/psr20_Clustered.jpg">PSR_20_Clustered</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_fibonacci.jpg">PSR_20_Fibonacci</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_unif.jpg">PSR_20_StatUniform</option>
+  </select>
+
+  <br><br>
+  <img id="displayImage" src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Images/image1.png" alt="Selected Image">
+
+  <!-- Scripts -->
   <script>
+    // Video switching
     const player = document.getElementById('player');
     const select = document.getElementById('videoSelect');
-
     select.addEventListener('change', () => {
-      player.src = select.value; // use raw URL
-      player.load();             // reload video
-      player.play();             // autoplay new video
+      player.src = select.value;
+      player.load();
+      player.play();
+    });
+
+    // Image switching
+    const imageSelect = document.getElementById('imageSelect');
+    const displayImage = document.getElementById('displayImage');
+    imageSelect.addEventListener('change', () => {
+      displayImage.src = imageSelect.value;
     });
   </script>
 </body>
