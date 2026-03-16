@@ -15,16 +15,16 @@
 
   <label for="videoSelect">Choose a video:</label>
   <select id="videoSelect">
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4">Video 1</option>
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_fibonacci.mp4">Video 2</option>
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_unif.mp4">Video 3</option>
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_clustered.mp4">Video 4</option>
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_fibonacci.mp4">Video 5</option>
-    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_unif.mp4">Video 6</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4">Video 1</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_fibonacci.mp4">Video 2</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_unif.mp4">Video 3</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_clustered.mp4">Video 4</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_fibonacci.mp4">Video 5</option>
+    <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_unif.mp4">Video 6</option>
   </select>
 
-  <video id="player" controls>
-    <source src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4" type="video/mp4">
+  <video id="player" controls autoplay muted>
+    <source src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
@@ -33,9 +33,9 @@
     const select = document.getElementById('videoSelect');
 
     select.addEventListener('change', () => {
-      player.src = select.value;  // Use full raw URL
-      player.load();              // Reload video with new source
-      player.play();
+      player.src = select.value; // use raw URL
+      player.load();             // reload video
+      player.play();             // autoplay new video
     });
   </script>
 </body>
