@@ -46,6 +46,40 @@
   <!-- Default image -->
   <img id="displayImage" src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Images/psr20_Clustered.jpg" alt="Selected Image">
 
+  <!-- New Section 1 -->
+  <hr>
+  <h2>Statistical Isotropic Sky through PTA: Varying Theta</h2>
+  <label for="videoSection1Select">Choose a video:</label>
+  <select id="videoSection1Select">
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_Clustered_fixedLmax.mp4">PSR_20_Clustered</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_Fibonacci_fixedLmax.mp4">PSR_20_Fibonacci</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_StatUnif_fixedLmax.mp4">PSR_20_StatUniform</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/40_Clustered_fixedLmax.mp4">PSR_40_Clustered</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/40_Fibonacci_fixedLmax.mp4">PSR_40_Fibonacci</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/40_StatUnif_fixedLmax.mp4">PSR_40_StatUniform</option>
+  </select>
+  <video id="playerSection1" controls autoplay muted>
+    <source src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_Clustered_fixedLmax.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- New Section 2 -->
+  <hr>
+  <h2>Statistical Isotropic Sky through PTA: Varying lmax_gwb</h2>
+  <label for="videoSection2Select">Choose a video:</label>
+  <select id="videoSection2Select">
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_Clustered_fixedTheta.mp4">PSR_20_Clustered</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_Fibonacci_fixedTheta.mp4">PSR_20_Fibonacci</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_StatUnif_fixedTheta.mp4">PSR_20_StatUniform</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/40_Clustered_fixedTheta.mp4">PSR_40_Clustered</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/40_Fibonacci_fixedTheta.mp4">PSR_40_Fibonacci</option>
+    <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/40_StatUnif_fixedTheta.mp4">PSR_40_StatUniform</option>
+  </select>
+  <video id="playerSection2" controls autoplay muted>
+    <source src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_Clustered_fixedTheta.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
   <script>
     // Video switching
     const player = document.getElementById('player');
@@ -62,6 +96,25 @@
     imageSelect.addEventListener('change', () => {
       displayImage.src = imageSelect.value;
     });
+
+    // Section 1 video switching
+    const playerSection1 = document.getElementById('playerSection1');
+    const videoSection1Select = document.getElementById('videoSection1Select');
+    videoSection1Select.addEventListener('change', () => {
+      playerSection1.src = videoSection1Select.value;
+      playerSection1.load();
+      playerSection1.play();
+    });
+
+    // Section 2 video switching
+    const playerSection2 = document.getElementById('playerSection2');
+    const videoSection2Select = document.getElementById('videoSection2Select');
+    videoSection2Select.addEventListener('change', () => {
+      playerSection2.src = videoSection2Select.value;
+      playerSection2.load();
+      playerSection2.play();
+    });
+    
   </script>
 </body>
 </html>
