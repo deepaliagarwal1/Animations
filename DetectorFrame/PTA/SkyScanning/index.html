@@ -8,12 +8,13 @@
     body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
     video, img { max-width: 100%; height: auto; margin-top: 10px; }
     select { padding: 5px; font-size: 16px; margin-top: 10px; }
+    hr { margin: 40px 0; }
   </style>
 </head>
 <body>
   <h1>Demo: Visualizing Point Spread Function Sweep Across the Sky with Pulsar Configurations</h1>
 
-  <!-- Video Section -->
+  <!-- First Video Section -->
   <label for="videoSelect">Choose a video:</label>
   <select id="videoSelect">
     <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4">PSR_20_Clustered</option>
@@ -24,10 +25,7 @@
     <option value="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr40_unif.mp4">PSR_40_StatUniform</option>
   </select>
 
-  <video id="player" controls autoplay muted>
-    <source src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <video id="player" controls autoplay muted src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Videos/psr20_clustered.mp4"></video>
 
   <!-- Image Section -->
   <hr>
@@ -43,10 +41,9 @@
   </select>
 
   <br><br>
-  <!-- Default image -->
   <img id="displayImage" src="https://raw.githubusercontent.com/deepaliagarwal1/Animations/main/DetectorFrame/PTA/SkyScanning/Images/psr20_Clustered.jpg" alt="Selected Image">
 
-  <!-- New Section 1 -->
+  <!-- Section 1 Video -->
   <hr>
   <h2>Statistical Isotropic Sky through PTA: Varying $theta$ ($C_{\ell} \ell^\theta; \quad \ell\in[1,\ell_{\rm max}^{\rm gwb}]$)</h2>
   <label for="videoSection1Select">Choose a video:</label>
@@ -58,12 +55,10 @@
     <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/40_Fibonacci_fixedLmax.mp4">PSR_40_Fibonacci</option>
     <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/40_StatUnif_fixedLmax.mp4">PSR_40_StatUniform</option>
   </select>
-  <video id="playerSection1" controls autoplay muted>
-    <source src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_Clustered_fixedLmax.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
-  <!-- New Section 2 -->
+  <video id="playerSection1" controls autoplay muted src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_lmaxGWB/20_Clustered_fixedLmax.mp4"></video>
+
+  <!-- Section 2 Video -->
   <hr>
   <h2>Statistical Isotropic Sky through PTA: Varying $\ell_{\rm max}^{\rm gwb}$ and $\theta=0$</h2>
   <label for="videoSection2Select">Choose a video:</label>
@@ -75,20 +70,24 @@
     <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/40_Fibonacci_fixedTheta.mp4">PSR_40_Fibonacci</option>
     <option value="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/40_StatUnif_fixedTheta.mp4">PSR_40_StatUniform</option>
   </select>
-  <video id="playerSection2" controls autoplay muted>
-    <source src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_Clustered_fixedTheta.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
+  <video id="playerSection2" controls autoplay muted src="https://github.com/deepaliagarwal1/Animations/raw/refs/heads/main/DetectorFrame/PTA/StatsIso/Fixed_Theta/20_Clustered_fixedTheta.mp4"></video>
 
   <script>
-    // Video switching
-    const player = document.getElementById('player');
-    const videoSelect = document.getElementById('videoSelect');
-    videoSelect.addEventListener('change', () => {
-      player.src = videoSelect.value;
-      player.load();
-      player.play();
-    });
+    // Generic video switching function
+    function setupVideoSwitch(selectId, videoId) {
+      const select = document.getElementById(selectId);
+      const video = document.getElementById(videoId);
+      select.addEventListener('change', () => {
+        video.src = select.value;
+        video.load();
+        video.play();
+      });
+    }
+
+    setupVideoSwitch('videoSelect', 'player');
+    setupVideoSwitch('videoSection1Select', 'playerSection1');
+    setupVideoSwitch('videoSection2Select', 'playerSection2');
 
     // Image switching
     const imageSelect = document.getElementById('imageSelect');
@@ -96,25 +95,6 @@
     imageSelect.addEventListener('change', () => {
       displayImage.src = imageSelect.value;
     });
-
-    // Section 1 video switching
-    const playerSection1 = document.getElementById('playerSection1');
-    const videoSection1Select = document.getElementById('videoSection1Select');
-    videoSection1Select.addEventListener('change', () => {
-      playerSection1.src = videoSection1Select.value;
-      playerSection1.load();
-      playerSection1.play();
-    });
-
-    // Section 2 video switching
-    const playerSection2 = document.getElementById('playerSection2');
-    const videoSection2Select = document.getElementById('videoSection2Select');
-    videoSection2Select.addEventListener('change', () => {
-      playerSection2.src = videoSection2Select.value;
-      playerSection2.load();
-      playerSection2.play();
-    });
-    
   </script>
 </body>
 </html>
